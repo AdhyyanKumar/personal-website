@@ -106,6 +106,12 @@
             left: 0; 
             box-shadow: 0 -2px 10px rgba(0,0,0,0.2); 
         }
+        
+        .zoom-transition {
+            transform: scale(1.2);
+            opacity: 0;
+            transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+        }
 
         @media (max-width: 768px) {
             header {
@@ -173,6 +179,19 @@
                 heroTitle.style.fontSize = "4em";
                 heroImg.style.transform = "scale(1)";
             }
+        });
+        document.addEventListener("DOMContentLoaded", function() {
+            const projectBtn = document.querySelector(".btn");
+
+            projectBtn.addEventListener("click", function(event) {
+                event.preventDefault(); // Prevent instant navigation
+
+                document.body.classList.add("zoom-transition"); // Apply effect
+
+                setTimeout(() => {
+                    window.location.href = projectBtn.getAttribute("href"); // Redirect smoothly
+                }, 500); // Wait for animation to finish
+            });
         });
     </script>
 </body>
