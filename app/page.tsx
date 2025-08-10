@@ -37,6 +37,8 @@ const featuredProjects = [
     tech: ['TypeScript', 'Gemini API', 'MongoDB', 'Vercel'],
     year: '2025',
     highlights: ['AI assistant', 'Pitch generator', 'Market analysis', 'Team collaboration'],
+    projectUrl: 'https://launchmate.tech',
+    githubUrl: 'https://github.com/AdhyyanKumar/launchmate'
   },
   {
     id: 2,
@@ -46,6 +48,8 @@ const featuredProjects = [
     tech: ['Python', 'TensorFlow', 'Data Analysis'],
     year: '2023',
     highlights: ['95% accuracy', 'Linear regression', 'Public dataset', 'Government resources'],
+    projectUrl: 'https://github.com/AdhyyanKumar/Blood_Bank_Prediction',
+    githubUrl: 'https://github.com/AdhyyanKumar/Blood_Bank_Prediction'
   },
 ];
 
@@ -232,15 +236,28 @@ export default function Home() {
                 </div>
                 
                 <div className="flex space-x-4">
-                  <button className="flex items-center space-x-2 text-primary hover:text-accent transition-colors">
-                    <ExternalLink size={16} />
-                    <span>View Project</span>
-                  </button>
-                  <button className="flex items-center space-x-2 text-fg/60 hover:text-fg transition-colors">
-                    <Github size={16} />
-                    <span>Source Code</span>
-                  </button>
+                  <a
+                    href={project.projectUrl} // Use dynamic project URL
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <button className="flex items-center space-x-2 text-primary hover:text-accent transition-colors">
+                      <ExternalLink size={16} />
+                      <span>View Project</span>
+                    </button>
+                  </a>
+                  <a
+                    href={project.githubUrl} // Use dynamic GitHub URL
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <button className="flex items-center space-x-2 text-fg/60 hover:text-fg transition-colors">
+                      <Github size={16} />
+                      <span>Source Code</span>
+                    </button>
+                  </a>
                 </div>
+
               </motion.div>
             ))}
           </div>
